@@ -3,7 +3,7 @@ var urlsToCache = [
   '/',
   '/css/main.css',
   '/js/main.js',
-  '/images/logo.jpg',
+  '/images/logo.png',
   '/js/jquery.min.js',
   '/fallback.json'
 ];

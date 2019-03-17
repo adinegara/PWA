@@ -17,7 +17,7 @@ $(document).ready(function(){
         $.each (data,function(key,items){
             //Store Gender
             _gend = items.gender;
-            result +=   '<div class="col-3 card">' +
+            result +=   '<div class="col-12 card">' +
                             '<p><b>' + items.name + '</b></p>' +
                             '<p>' + _gend + '</p>' +
                         '</div>';
@@ -83,7 +83,7 @@ caches.match(_url).then(function(response){
         $.each(data,function(key,items){
             //Store Gender
             _gend = items.gender;
-            result +=   '<div class="col-3 card">' +
+            result +=   '<div class="col-12 card">' +
                             '<p><b>' + items.name + '</b></p>' +
                             '<p>' + _gend + '</p>' +
                         '</div>';

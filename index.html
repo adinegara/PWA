@@ -4,39 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Joker</title>
+    <title>Adinegara | PWA</title>
     <link rel="shortcut icon" href="/images//logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
-<body style="background-color:aliceblue;">
+<body style="background-color:#e3e6ed;">
     <div class="text-center judul">
-        <img src="/images/logo.jpg" alt="">
-        <button id="btn-notification">Show Notification</button>
+        <img src="/images/logo.png" alt="" class="rounded" style="width: 200px;height: 200px">
+            <h3>Data Mahasiswa</h3>
+        <button id="btn-notification" class="btn btn-info">Show Notification</button>
     </div>
-
-    <div class="container">
-        
-        <hr>
-
-    </div>
-
-    <div class="container">
-        <h3>Data Mahasiswa</h3>
+    <div class="container text-center" style="padding: 10px">       
         <label for="gender-select">Gender</label>
         <select id="gender-select">
             <option value="Semua">Semua</option>
             <option value="Female">Female</option>
             <option value="Male">Male</option>
-        </select>
-        <div class="container">
-            <id id="mhs-list" class="row">
-                <p>Not Found</p>
-            </id>
-        </div>
+        </select> 
+        <div id="mhs-list">
+                <p>Not Found</p>            
+        </div> 
     </div>
-
-   
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
 </body>

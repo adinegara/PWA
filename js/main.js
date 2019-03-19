@@ -125,18 +125,56 @@ caches.match(_url).then(function(response){
         displayNotification();
     });
 
+//ngecek online
+function isOnline(){
+    var connectionStatus = $('#connection-status');
+    if(navigator.onLine){
+        connectionStatus.html = '<p>anda online</p>';
+    }else{
+        connectionStatus.html = '<p>anda offfline</p>';
+    }
+}
+window.addEventListener('online', isOnline);
+window.addEventListener('offline', isOnline);
+
 });
 
 
 //Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+      navigator.serviceWorker.register('/serviceworker.js').then(function(reg) {
+          return navigator.serviceWorker.ready;
+      }).then(function(reg){
+          document.getElementById('reg-sync').addEventListener('click', function(){
+              reg.sync.register('image-fetch').then(()=>
+                  {console.log('sync-registered');
+            }).catch(function(err){
+                console.log('unable to fetch Image. Error:', err);
+            })
+      })
         // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        // console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }, function(err) {
         // registration failed :(
         console.log('ServiceWorker registration failed: ', err);
       });
     });
+  }
+  self.addEventListener('sync', function(event){
+      console.log('firing sync');
+      if(event.tag=== 'image-fetch'){
+          console.log('sync event fired');
+          event.waitUntil(fetchImage());
+      }
+  })
+  function fetchImage(){
+      console.log('firing : doSomeStuff()');
+      fetch('/images/logo.png').then(function(response){
+          return response;
+      }).then(function(text){
+          console.log('request success', text);
+      }).catch(function(err){
+        console.log('request failed', text);
+      })
   }
